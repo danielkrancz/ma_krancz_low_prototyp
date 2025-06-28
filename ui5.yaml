@@ -17,8 +17,7 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap
-            url: https://s4dev.clouddna.at:8001
-            destination: S4D
+            destination: S4C
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
