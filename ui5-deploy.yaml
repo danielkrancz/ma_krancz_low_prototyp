@@ -4,22 +4,19 @@ specVersion: "3.1"
 metadata:
   name: at.hb.makrancz.lowcodeapp
 type: application
+resources:
+  configuration:
+    propertiesFileSourceEncoding: UTF-8
 builder:
   resources:
     excludes:
       - /test/**
       - /localService/**
   customTasks:
-    - name: deploy-to-abap
+    - name: ui5-task-zipper
       afterTask: generateCachebusterInfo
       configuration:
-        target:
-          destination: S4C
-          url: https://11b69711-9bcb-491b-b504-a9ba7e4b7e97.abap.us10.hana.ondemand.com/
-          scp: true
-        app:
-          name: ZMAKRANCZLOW
-          package: ZDKTEST
-          transport: TRLK919142
-        exclude:
-          - /test/
+        archiveName: athbmakranczlowcodeapp
+        relativePaths: true
+        additionalFiles:
+          - xs-app.json
